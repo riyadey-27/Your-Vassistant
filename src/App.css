@@ -1,0 +1,394 @@
+/* 🌟 General Styles */
+body {
+  background: linear-gradient(to right, #1a1a1a, #292929);
+  color: white;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden; /* Prevent scrollbars during animations */
+}
+
+/* 🌟 Background Animation (Subtle Particle Effect) */
+.background-particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Behind other content */
+  pointer-events: none; /* Don't interfere with clicks */
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  animation: particleAnimation 3s linear infinite; /* Adjust duration */
+}
+
+@keyframes particleAnimation {
+  0% { transform: translate(0, 0); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translate(var(--x), var(--y)); opacity: 0; } /* Use CSS variables */
+}
+
+/* 🌟 Main Container */
+.container {
+  max-width: 400px;
+  width: 90%;
+  padding: 30px; /* Increased padding */
+  border-radius: 20px; /* More rounded corners */
+  background: rgba(255, 255, 255, 0.05); /* Slightly darker background */
+  backdrop-filter: blur(15px); /* Stronger blur */
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4); /* More prominent shadow */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Subtler border */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transitions */
+}
+
+.container:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 45px rgba(0, 0, 0, 0.5); /* Enhanced hover shadow */
+}
+
+/* 🌟 Header */
+h1 {
+  font-size: 24px; /* Slightly larger */
+  margin-bottom: 20px;
+  background: linear-gradient(45deg, #1db954, #1ed760);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  font-weight: 600; /* Slightly less bold */
+  letter-spacing: 1px; /* Add some letter spacing */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle text shadow */
+}
+
+/* 🌟 Alexa Image */
+.alexa-img {
+  width: 120px; /* Slightly larger */
+  animation: glow 2.5s infinite alternate, bounce 1s ease-in-out infinite; /* Added bounce */
+  margin-bottom: 20px;
+  border-radius: 50%; /* Make it circular */
+  box-shadow: 0 0 10px rgba(29, 185, 84, 0.5); /* Add a subtle glow */
+}
+
+@keyframes glow {
+  0% { filter: drop-shadow(0 0 8px #1db954); }
+  100% { filter: drop-shadow(0 0 25px #1db954); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+
+/* 🌟 Buttons */
+button {
+  display: block;
+  width: 100%;
+  margin: 15px 0;
+  background: linear-gradient(135deg, #1db954, #1ed760);
+  color: white;
+  border: none;
+  padding: 16px 24px; /* Increased padding */
+  font-size: 18px; /* Slightly larger font */
+  font-weight: 500; /* Slightly less bold */
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 6px 20px rgba(29, 185, 84, 0.4);
+  overflow: hidden; /* For ripple effect */
+  position: relative; /* For ripple effect */
+}
+
+button:hover {
+  background: linear-gradient(135deg, #1ed760, #1db954);
+  box-shadow: 0 8px 25px rgba(29, 185, 84, 0.5);
+  transform: translateY(-3px);
+}
+
+/* Ripple effect on button click */
+button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+  opacity: 0;
+  pointer-events: none; /* Prevent ripple from interfering with click */
+  transition: width 0.5s ease-out, height 0.5s ease-out, opacity 0.3s ease-out;
+}
+
+button:active::before {
+  width: 200%; /* Adjust size as needed */
+  height: 200%;
+  opacity: 1;
+}
+
+/* 🌟 Responsive Font & Layout */
+p {
+  font-size: 16px; /* Slightly larger */
+  margin-top: 10px;
+  line-height: 1.7; /* Improved line height */
+  color: #eee; /* Slightly lighter text */
+}
+
+/* 🌟 Responsive Design */
+@media (max-width: 600px) {
+  .container {
+      width: 95%;
+      padding: 20px;
+  }
+
+  h1 {
+      font-size: 22px;
+  }
+
+  button {
+      font-size: 16px;
+      padding: 14px 20px;
+  }
+
+  .alexa-img {
+      width: 100px;
+  }
+
+  p {
+      font-size: 14px;
+  }
+}
+
+
+/* ... (rest of your CSS) ... */
+
+/* 🌟 Alexa Image */
+.alexa-img {
+  width: 300px; /* Increased size */
+  animation: glow 2.5s infinite alternate, bounce 1s ease-in-out infinite;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(29, 185, 84, 0.6); /* Slightly stronger glow */
+  transition: transform 0.3s ease; /* Smooth scaling transition */
+}
+
+.alexa-img:hover {
+  transform: scale(1.05); /* Scale up slightly on hover */
+}
+
+/* 🌟 Buttons - New Design */
+button {
+  display: block;
+  width: 100%;
+  margin: 15px 0;
+  background: linear-gradient(135deg, #1db954, #1ed760);  /* Gradient background */
+  color: white;
+  border: none;
+  padding: 18px 26px; /* Adjusted padding */
+  font-size: 18px;
+  font-weight: 600; /* More bold */
+  border-radius: 10px; /* Less rounded corners */
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 8px 25px rgba(29, 185, 84, 0.5); /* Stronger shadow */
+  overflow: hidden;
+  position: relative;
+  letter-spacing: 1px; /* Add letter spacing */
+}
+
+button:hover {
+  background: linear-gradient(135deg, #1ed760, #1db954);
+  box-shadow: 0 10px 30px rgba(29, 185, 84, 0.6);
+  transform: translateY(-4px); /* More pronounced lift */
+}
+
+/* Glassy Button Effect (Optional - Add to button style) */
+.glassy-button {
+background: rgba(29, 185, 84, 0.2); /* Semi-transparent background */
+backdrop-filter: blur(5px);  /* Blur effect */
+border: 1px solid rgba(29, 185, 84, 0.3); /* Subtle border */
+box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Inner shadow */
+}
+
+.glassy-button:hover {
+  background: rgba(29, 185, 84, 0.3);
+  border-color: rgba(29, 185, 84, 0.4);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ... (rest of your CSS) ... */
+/* ... (rest of your CSS) ... */
+
+body {
+  /* ... (other body styles) ... */
+  overflow: hidden; /* Keep overflow hidden for background animations */
+}
+
+/* 🌟 Animated Background - Aurora Effect */
+.aurora {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%; /* Wider than the viewport for animation */
+  height: 100%;
+  background: linear-gradient(to right, #24292e, #0d1117, #24292e); /* Darker base */
+  animation: auroraAnimation 15s linear infinite; /* Adjust duration */
+  z-index: -2; /* Behind particles and content */
+  opacity: 0.7; /* Adjust opacity */
+}
+
+@keyframes auroraAnimation {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+/* 🌟 Background Particles (Enhanced) */
+.particle {
+  /* ... (previous particle styles) ... */
+  animation: particleAnimation 4s linear infinite; /* Slightly slower */
+  opacity: 0.5; /* More visible */
+  background-color: rgba(29, 185, 84, 0.4); /* Greenish particles */
+}
+
+@keyframes particleAnimation {
+  0% { transform: translate(0, 0) scale(0); opacity: 0; } /* Start smaller */
+  50% { transform: translate(var(--x), var(--y)) scale(1); opacity: 1; } /* Expand and move */
+  100% { transform: translate(calc(var(--x) * 1.5), calc(var(--y) * 1.5)) scale(0); opacity: 0; } /* Move further and shrink */
+}
+
+
+/* 🌟 Container Animation (Pulse on Hover) */
+.container {
+  /* ... (previous container styles) ... */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, opacity 0.5s; /* Add opacity transition */
+  opacity: 0.9; /* Slightly transparent initially */
+}
+
+.container:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 45px rgba(0, 0, 0, 0.5);
+  opacity: 1; /* Fully opaque on hover */
+  animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite; /* Pulse animation */
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1.03); }
+  50% { transform: scale(1.05); }
+}
+
+/* 🌟 Button Animations (More Subtle Hover) */
+button {
+  /* ... (previous button styles) ... */
+  transition: all 0.3s ease-in-out, transform 0.2s ease; /* Add transform transition */
+}
+
+button:hover {
+  /* ... (previous hover styles) ... */
+  transform: translateY(-4px) scale(1.02); /* Scale up slightly on hover */
+}
+
+/* ... (rest of your CSS) ... */
+/* ... (rest of your CSS) ... */
+
+/* 🌟 Responsive Design (Enhanced) */
+
+/* Mobile Styles (Smaller Screens) */
+@media (max-width: 600px) {
+  .container {
+      width: 95%;
+      padding: 20px;
+      /* Example: Stack elements vertically if needed */
+      display: flex;
+      flex-direction: column; /* Stack items */
+      align-items: center; /* Center horizontally */
+  }
+
+  h1 {
+      font-size: 22px;
+      margin-bottom: 15px; /* Adjust margin */
+  }
+
+  button {
+      font-size: 16px;
+      padding: 14px 20px;
+  }
+
+  .alexa-img {
+      width: 120px; /* Slightly smaller on mobile */
+      margin-bottom: 15px; /* Adjust margin */
+  }
+
+  p {
+      font-size: 14px;
+      line-height: 1.6; /* Adjust line height */
+  }
+  /* Example: Hide an element on mobile */
+  .desktop-only {
+      display: none;
+  }
+}
+
+/* Tablet Styles (Medium Screens) */
+@media (min-width: 601px) and (max-width: 900px) { /* Adjust breakpoint as needed */
+  .container {
+      width: 90%;
+      padding: 25px;
+  }
+
+  h1 {
+      font-size: 24px;
+  }
+
+  button {
+      font-size: 17px;
+      padding: 15px 22px;
+  }
+
+  .alexa-img {
+      width: 140px;
+  }
+
+  p {
+      font-size: 15px;
+      line-height: 1.65;
+  }
+  /* Example: Different layout for tablets */
+  .tablet-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr; /* Two columns */
+      gap: 20px;
+  }
+}
+
+/* Desktop Styles (Large Screens) - Optional, often not needed */
+@media (min-width: 901px) { /* Adjust breakpoint as needed */
+  .container {
+      width: 80%; /* Or a fixed width */
+      max-width: 400px; /* Limit max width */
+  }
+
+  /* ... any desktop-specific styles ... */
+}
+
+/* Fluid Typography Example (Optional) */
+h1 {
+  font-size: clamp(20px, 3vw, 28px); /* Min, preferred, max font size */
+}
+
+p {
+  font-size: clamp(14px, 2vw, 16px);
+}
+
+/* ... (rest of your CSS) ... */
